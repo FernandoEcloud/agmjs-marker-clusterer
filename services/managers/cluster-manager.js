@@ -30,6 +30,7 @@ var ClusterManager = (function (_super) {
         var _this = this;
         this._mapsWrapper.getNativeMap().then(function (map) {
             var clusterer = new MarkerClusterer(map, [], options);
+
             clusterer.setCalculator((markers, count) => {
                 if( markers.length > 1){
                     let index = 0;
@@ -41,9 +42,8 @@ var ClusterManager = (function (_super) {
                     }
                     let dv = markers.length;
                     dv = sum / dv;
-            
                     return {
-                        text: "u$s "+dv.toString()+ " m2",
+                        text: "<small style='color:#f96363;font-size:14px'><b>u$s"+ dv +"m²</b></small>\xa0\ \xa0\ \xa0\ \xa0\ <span style='padding-left:3px'>"+markers.length + "</span>\xa0\ \xa0\<small style='font-size:14px;padding-left:3px'>Proyectos</small>",
                         index: index
                     }
                 }
