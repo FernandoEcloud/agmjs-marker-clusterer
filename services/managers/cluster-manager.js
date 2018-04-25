@@ -43,7 +43,7 @@ var ClusterManager = (function (_super) {
                     let dv = markers.length;
                     dv = sum / dv;
                     return {
-                        text: "<small style='color:#f96363;font-size:14px'><b>u$s"+ dv +"m²</b></small>\xa0\ \xa0\ \xa0\ \xa0\ <span style='padding-left:3px'>"+markers.length + "</span>\xa0\ \xa0\<small style='font-size:14px;padding-left:3px'>Proyectos</small>",
+                        text: "<small style='color:#f96363;font-size:12px'>\xa0\ <b>u$s"+ dv +"m²</b> </small>\x0D\ <span style='padding-left:32px;padding-top:2px;font-size:22px'>"+markers.length + "</span> <small style='font-size:14px;padding-left:6px'>Proyectos</small>",
                         index: index
                     }
                 }
