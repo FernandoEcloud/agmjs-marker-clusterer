@@ -43,7 +43,7 @@ var ClusterManager = (function (_super) {
                     let dv = markers.length;
                     dv = sum / dv;
                     dv = Math.round(dv * 100) / 100;
-                    const padding_left = markers.length > 9 ? 25 : 32;
+                    const padding_left = markers.length > 9 ? 25 : 28;
                     return {
                         text: "<small style='color:#f96363;font-size:12px'>\xa0\ <b>u$s"+ dv +"m²</b> </small>\x0D\ <span style='padding-left:"+padding_left+"px;padding-top:2px;font-size:22px'>"+ markers.length + "</span> <small style='font-size:14px;padding-left:6px'>Proyectos</small>",
                         index: index
