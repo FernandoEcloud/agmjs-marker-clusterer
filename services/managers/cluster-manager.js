@@ -45,7 +45,7 @@ var ClusterManager = (function (_super) {
                     dv = Math.round(dv * 100) / 100;
                     const padding_left = markers.length > 9 ? 25 : 32;
                     return {
-                        text: "<small style='color:#f96363;font-size:11px;text-align:center'>\xa0\ <b>u$s"+ dv +"m²</b> </small>\x0D\ <span style='padding-left:"+padding_left+"px;padding-top:2px;font-size:22px'>"+ markers.length +"</span> <small style='font-size:14px;padding-left:6px'>Proyectos</small>",
+                        text: "<small style='color:#f96363;font-size:0.8rem;text-align:center;background: white;padding: 0.4rem 0.6rem;border-radius: 16px;box-shadow: rgba(0, 0, 0, 0.26) 0px 0px 8px;font-weight: 700;font-family:" + 'Lato' + ",sans-serif;'>u$s"+ dv +"m²</small> <span style='padding-left:0;padding-top:2px;font-size:22px;position: relative;top: 15%;font-family:" + 'Lato' + ",sans-serif;'>"+ markers.length,
                         index: index
                     }
                 }
