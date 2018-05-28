@@ -35,13 +35,17 @@ var ClusterManager = (function (_super) {
                 if( markers.length > 1){
                     let index = 0;
                     let sum = 0;
+                    let count = 0
                     for (var i = 0; i < markers.length; i++) {
-                        if (markers[i]) {
-                            sum += parseFloat(markers[i].priceFrom);
+                        if(markers[i].priceFrom !== null){
+                            count++;
+                            if (markers[i]) {
+                                sum += parseFloat(markers[i].priceFrom);
+                            }
                         }
                     }
                     let dv = markers.length;
-                    dv = sum / dv;
+                    dv = sum / count;
                     dv = Math.round(dv * 100) / 100;
                     const padding_left = markers.length > 9 ? 25 : 32;
                     return {
