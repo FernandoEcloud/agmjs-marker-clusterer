@@ -32,12 +32,12 @@ var ClusterManager = (function (_super) {
             var clusterer = new MarkerClusterer(map, [], options);
 
             clusterer.setCalculator((markers, count) => {
-                if( markers.length > 1){
+                if (markers.length > 1) {
                     let index = 0;
                     let sum = 0;
                     let count = 0
                     for (var i = 0; i < markers.length; i++) {
-                        if(markers[i].priceFrom !== null){
+                        if (markers[i].priceFrom !== null) {
                             count++;
                             if (markers[i]) {
                                 sum += parseFloat(markers[i].priceFrom);
@@ -47,13 +47,14 @@ var ClusterManager = (function (_super) {
                     let dv = markers.length;
                     dv = sum / count;
                     dv = Math.round(dv * 100) / 100;
+                    dv = (dv).toLocaleString('spa-spa');
                     const padding_left = markers.length > 9 ? 25 : 32;
                     return {
-                        text: "<small style='color:#f96363;font-size:0.8rem;text-align:center;background: white;padding: 0.4rem 0.6rem;border-radius: 16px;box-shadow: rgba(0, 0, 0, 0.26) 0px 0px 8px;font-weight: 700;font-family:" + 'Lato' + ",sans-serif;'>u$s"+ dv +"m²</small> <p style='padding-left:0;padding-top:2px;font-size:22px;position: relative;top: 0;font-family:" + 'Lato' + ",sans-serif;margin-top: 0.3rem;'>"+ markers.length+ "</p><p style='padding-left: 0;padding-top: 9px;font-size: 0.7rem;position: relative;bottom: 35%;font-family: Lato,sans-serif;'>Proyectos</p>",
+                        text: "<small style='color:#f96363;font-size:0.8rem;text-align:center;background: white;padding: 0.4rem 0.6rem;border-radius: 16px;box-shadow: rgba(0, 0, 0, 0.26) 0px 0px 8px;font-weight: 700;font-family:" + 'Lato' + ",sans-serif;'>$" + dv + "m²</small> <p style='padding-left:0;padding-top:2px;font-size:22px;position: relative;top: 0;font-family:" + 'Lato' + ",sans-serif;margin-top: 0.3rem;'>" + markers.length + "</p><p style='padding-left: 0;padding-top: 9px;font-size: 0.7rem;position: relative;bottom: 35%;font-family: Lato,sans-serif;'>Proyectos</p>",
                         index: index
                     }
                 }
-                
+
             });
             _this._resolver(clusterer);
         });
@@ -62,32 +63,32 @@ var ClusterManager = (function (_super) {
         var clusterPromise = this._clustererInstance;
         var markerPromise = this._mapsWrapper
             .createMarker({
-            position: {
-                lat: marker.latitude,
-                lng: marker.longitude
-            },
-            label: marker.label,
-            draggable: marker.draggable,
-            icon: marker.iconUrl,
-            opacity: marker.opacity,
-            visible: marker.visible,
-            zIndex: marker.zIndex,
-            title: marker.title,
-            clickable: marker.clickable,
-            priceFrom: marker.priceFrom,
-            labelContent: marker.labelContent,
-            labelAnchor: marker.labelAnchor,
-            labelClass: marker.labelClass, // the CSS class for the label
-            labelInBackground: marker.labelInBackground,
-            labelStyle: marker.labelStyle
-            
-        }, false);
+                position: {
+                    lat: marker.latitude,
+                    lng: marker.longitude
+                },
+                label: marker.label,
+                draggable: marker.draggable,
+                icon: marker.iconUrl,
+                opacity: marker.opacity,
+                visible: marker.visible,
+                zIndex: marker.zIndex,
+                title: marker.title,
+                clickable: marker.clickable,
+                priceFrom: marker.priceFrom,
+                labelContent: marker.labelContent,
+                labelAnchor: marker.labelAnchor,
+                labelClass: marker.labelClass, // the CSS class for the label
+                labelInBackground: marker.labelInBackground,
+                labelStyle: marker.labelStyle
+
+            }, false);
         Promise
             .all([clusterPromise, markerPromise])
             .then(function (_a) {
-            var cluster = _a[0], marker = _a[1];
-            return cluster.addMarker(marker);
-        });
+                var cluster = _a[0], marker = _a[1];
+                return cluster.addMarker(marker);
+            });
         this._markers.set(marker, markerPromise);
     };
     ClusterManager.prototype.deleteMarker = function (marker) {
@@ -168,8 +169,10 @@ ClusterManager.decorators = [
     { type: Injectable },
 ];
 /** @nocollapse */
-ClusterManager.ctorParameters = function () { return [
-    { type: GoogleMapsAPIWrapper, },
-    { type: NgZone, },
-]; };
+ClusterManager.ctorParameters = function () {
+    return [
+        { type: GoogleMapsAPIWrapper, },
+        { type: NgZone, },
+    ];
+};
 //# sourceMappingURL=cluster-manager.js.map
