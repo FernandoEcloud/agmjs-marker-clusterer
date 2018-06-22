@@ -1,6 +1,5 @@
 /*jslint browser: true, confusion: true, sloppy: true, vars: true, nomen: false, plusplus: false, indent: 2 */
 /*global window,google */
-
 /**
  * @name MarkerClustererPlus for Google Maps V3
  * @version 2.0.9 [February 20, 2012]

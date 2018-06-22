@@ -130,6 +130,7 @@ var ClusterManager = (function (_super) {
     ClusterManager.prototype.setZoomOnClick = function (c) {
         this._clustererInstance.then(function (cluster) {
             if (c.zoomOnClick !== undefined) {
+                cluster.zoomEvent.emit(true)
                 cluster.zoomOnClick_ = c.zoomOnClick;
             }
         });

@@ -1,4 +1,4 @@
-import { OnDestroy, OnChanges, OnInit, SimpleChange } from '@angular/core';
+import { OnDestroy, OnChanges, OnInit, SimpleChange, EventEmitter } from '@angular/core';
 import { ClusterManager } from '../services/managers/cluster-manager';
 import { ClusterOptions, ClusterStyle } from '../services/google-clusterer-types';
 /**
@@ -42,6 +42,8 @@ export declare class AgmMarkerCluster implements OnDestroy, OnChanges, OnInit, C
      * Whether the default behaviour of clicking on a cluster is to zoom into it.
      */
     zoomOnClick: boolean;
+
+    zoomEvent: EventEmitter<any>;
     /**
      * Whether the center of each cluster should be the average of all markers in the cluster.
      */

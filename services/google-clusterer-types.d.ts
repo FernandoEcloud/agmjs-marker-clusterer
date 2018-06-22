@@ -1,4 +1,6 @@
 import { Marker, GoogleMap, LatLngBounds } from '@agm/core/services/google-maps-types';
+import { EventEmitter } from '@angular/core';
+
 export interface CalculatorResult {
     text: string;
     index: number;
@@ -45,6 +47,8 @@ export interface ClusterOptions {
      * Whether the default behaviour of clicking on a cluster is to zoom into it.
      */
     zoomOnClick?: boolean;
+
+    zoomEvent?: EventEmitter<any>;
     /**
      * Whether the center of each cluster should be the average of all markers in the cluster.
      */

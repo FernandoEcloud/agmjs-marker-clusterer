@@ -331,6 +331,7 @@ var ClusterManager = (function (_super) {
     ClusterManager.prototype.setZoomOnClick = function (c) {
         this._clustererInstance.then(function (cluster) {
             if (c.zoomOnClick !== undefined) {
+                cluster.zoomEvent.emit(true)
                 cluster.zoomOnClick_ = c.zoomOnClick;
             }
         });
@@ -445,6 +446,7 @@ var AgmMarkerCluster = (function () {
             gridSize: this.gridSize,
             maxZoom: this.maxZoom,
             zoomOnClick: this.zoomOnClick,
+            zoomEvent: this.zoomEvent,
             averageCenter: this.averageCenter,
             minimumClusterSize: this.minimumClusterSize,
             styles: this.styles,
@@ -472,6 +474,7 @@ AgmMarkerCluster.propDecorators = {
     'gridSize': [{ type: _angular_core.Input },],
     'maxZoom': [{ type: _angular_core.Input },],
     'zoomOnClick': [{ type: _angular_core.Input },],
+    'zoomEvent': [{ type: _angular_core.Output },],
     'averageCenter': [{ type: _angular_core.Input },],
     'minimumClusterSize': [{ type: _angular_core.Input },],
     'styles': [{ type: _angular_core.Input },],
