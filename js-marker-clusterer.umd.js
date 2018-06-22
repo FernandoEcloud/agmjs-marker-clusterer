@@ -1,3 +1,4 @@
+import { EventEmitter } from '@angular/core';
 
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('js-marker-clusterer'), require('rxjs/Observable'), require('@agm/core')) :
@@ -446,7 +447,6 @@ var AgmMarkerCluster = (function () {
             gridSize: this.gridSize,
             maxZoom: this.maxZoom,
             zoomOnClick: this.zoomOnClick,
-            zoomEvent: this.zoomEvent,
             averageCenter: this.averageCenter,
             minimumClusterSize: this.minimumClusterSize,
             styles: this.styles,
@@ -474,7 +474,6 @@ AgmMarkerCluster.propDecorators = {
     'gridSize': [{ type: _angular_core.Input },],
     'maxZoom': [{ type: _angular_core.Input },],
     'zoomOnClick': [{ type: _angular_core.Input },],
-    'zoomEvent': [{ type: _angular_core.Output },],
     'averageCenter': [{ type: _angular_core.Input },],
     'minimumClusterSize': [{ type: _angular_core.Input },],
     'styles': [{ type: _angular_core.Input },],

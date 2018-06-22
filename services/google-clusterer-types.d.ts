@@ -48,10 +48,6 @@ export interface ClusterOptions {
      */
     zoomOnClick?: boolean;
 
-    zoomEvent?: EventEmitter<any>;
-    /**
-     * Whether the center of each cluster should be the average of all markers in the cluster.
-     */
     averageCenter?: boolean;
     /**
      * The minimum number of markers to be in a cluster before the markers are hidden and a count is shown.

@@ -43,7 +43,7 @@ export declare class AgmMarkerCluster implements OnDestroy, OnChanges, OnInit, C
      */
     zoomOnClick: boolean;
 
-    zoomEvent: EventEmitter<any>;
+    zoomEvent: EventEmitter<boolean> = new EventEmitter();
     /**
      * Whether the center of each cluster should be the average of all markers in the cluster.
      */

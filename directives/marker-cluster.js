@@ -1,4 +1,4 @@
-import { Directive, Input, Output } from '@angular/core';
+import { Directive, Input, Output , EventEmitter} from '@angular/core';
 import { ClusterManager } from '../services/managers/cluster-manager';
 import { MarkerManager, InfoWindowManager } from '@agm/core';
 /**
@@ -48,7 +48,6 @@ var AgmMarkerCluster = (function () {
             this._clusterManager.setStyles(this);
         }
         if (changes['zoomOnClick']) {
-            console.log(2)
             this._clusterManager.setZoomOnClick(this);
         }
         if (changes['averageCenter']) {
@@ -73,7 +72,7 @@ var AgmMarkerCluster = (function () {
             gridSize: this.gridSize,
             maxZoom: this.maxZoom,
             zoomOnClick: this.zoomOnClick,
-            zoomEvent: this.zoomEvent,
+            zoomEvent: new EventEmitter(),
             averageCenter: this.averageCenter,
             minimumClusterSize: this.minimumClusterSize,
             styles: this.styles,
@@ -102,6 +101,7 @@ AgmMarkerCluster.propDecorators = {
     'gridSize': [{ type: Input },],
     'maxZoom': [{ type: Input },],
     'zoomOnClick': [{ type: Input },],
+    'zoomEvent': [{ type: Output },],
     'averageCenter': [{ type: Input },],
     'minimumClusterSize': [{ type: Input },],
     'styles': [{ type: Input },],
