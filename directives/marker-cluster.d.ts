@@ -43,7 +43,7 @@ export declare class AgmMarkerCluster implements OnDestroy, OnChanges, OnInit, C
      */
     zoomOnClick: boolean;
 
-    zoomEvent: EventEmitter<boolean> = new EventEmitter();
+    zoomEvent: EventEmitter<boolean> ;
     /**
      * Whether the center of each cluster should be the average of all markers in the cluster.
      */
@@ -58,7 +58,7 @@ export declare class AgmMarkerCluster implements OnDestroy, OnChanges, OnInit, C
     styles: ClusterStyle;
     imagePath: string;
     imageExtension: string;
-    constructor(_clusterManager: ClusterManager);
+    constructor(_clusterManager: ClusterManager );
     /** @internal */
     ngOnDestroy(): void;
     /** @internal */

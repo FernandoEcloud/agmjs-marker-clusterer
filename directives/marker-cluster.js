@@ -31,6 +31,7 @@ import { MarkerManager, InfoWindowManager } from '@agm/core';
 var AgmMarkerCluster = (function () {
     function AgmMarkerCluster(_clusterManager) {
         this._clusterManager = _clusterManager;
+        this.zoomEvent = new EventEmitter();
     }
     /** @internal */
     AgmMarkerCluster.prototype.ngOnDestroy = function () {
