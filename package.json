@@ -19,7 +19,7 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "git://github.com/FernandoEcloud/agmjs-marker-clusterer.git#2a1eea418401003fdde625333056d01ef4424eac",
+  "_resolved": "git://github.com/FernandoEcloud/agmjs-marker-clusterer.git#4618aa068d23d437164db20a9b3c1f6a2648644e",
   "_shasum": "3b4d0e950b4150d15fc7f523c8a9f48fc60cac2e",
   "_spec": "@agm/js-marker-clusterer@git://github.com/FernandoEcloud/agmjs-marker-clusterer.git",
   "_where": "/Applications/MAMP/htdocs/alpozo-front",

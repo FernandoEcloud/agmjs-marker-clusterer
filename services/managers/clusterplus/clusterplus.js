@@ -574,6 +574,7 @@ Cluster.prototype.isMarkerAlreadyAdded_ = function (marker) {
       }
     }
   }
+
   return false;
 };
 
@@ -662,7 +663,6 @@ export function MarkerClusterer(Mark, map, opt_markers, opt_options) {
 
   opt_markers = opt_markers || [];
   opt_options = opt_options || {};
-
   this.markers_ = [];
   this.clusters_ = [];
   this.listeners_ = [];
@@ -674,7 +674,7 @@ export function MarkerClusterer(Mark, map, opt_markers, opt_options) {
   this.maxZoom_ = opt_options.maxZoom || null;
   this.styles_ = opt_options.styles || [];
   this.title_ = opt_options.title || "";
-  this.zoomOnClick_ = true;
+  this.zoomOnClick_ = false;
   if (opt_options.zoomOnClick !== undefined) {
     this.zoomOnClick_ = opt_options.zoomOnClick;
   }
@@ -703,7 +703,6 @@ export function MarkerClusterer(Mark, map, opt_markers, opt_options) {
   }
 
   this.setupStyles_();
-
   this.addMarkers(opt_markers, true);
   this.setMap(map); // Note: this causes onAdd to be called
 }

@@ -1,4 +1,6 @@
 import { MarkerClustererPlus } from './clusterplus/clusterplus'
+import { EventEmitter } from '@angular/core';
+
 
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -56,7 +58,16 @@ var ClusterManager = (function (_super) {
                 }
 
             });
+            clusterer.zoomEvent = new EventEmitter();
+
             _this._resolver(clusterer);
+
+            google.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
+                _this.ZoomEventOnClick(clusterer)
+
+            });
+
+           
         });
     };
     ClusterManager.prototype.addMarker = function (marker) {
@@ -125,15 +136,19 @@ var ClusterManager = (function (_super) {
     ClusterManager.prototype.setStyles = function (c) {
         this._clustererInstance.then(function (cluster) {
             cluster.setStyles(c.styles);
+            cluster.zoomEvent = c.zoomEvent;
+
         });
     };
     ClusterManager.prototype.setZoomOnClick = function (c) {
         this._clustererInstance.then(function (cluster) {
             if (c.zoomOnClick !== undefined) {
-                cluster.zoomEvent.emit(true)
                 cluster.zoomOnClick_ = c.zoomOnClick;
             }
         });
+    };
+    ClusterManager.prototype.ZoomEventOnClick = function (c) {
+       c.zoomEvent.emit(true)
     };
     ClusterManager.prototype.setAverageCenter = function (c) {
         this._clustererInstance.then(function (cluster) {

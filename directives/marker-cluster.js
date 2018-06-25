@@ -73,7 +73,7 @@ var AgmMarkerCluster = (function () {
             gridSize: this.gridSize,
             maxZoom: this.maxZoom,
             zoomOnClick: this.zoomOnClick,
-            zoomEvent: new EventEmitter(),
+            zoomEvent: this.zoomEvent,
             averageCenter: this.averageCenter,
             minimumClusterSize: this.minimumClusterSize,
             styles: this.styles,

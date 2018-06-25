@@ -7,7 +7,8 @@ export interface CalculatorResult {
 }
 export declare type CalculateFunction = (marker: Marker[], count: number) => CalculatorResult;
 export interface MarkerClustererInstance {
-    zoomOnClick_: boolean;
+    zoomOnClick_: EventEmitter<any>;
+    zoomEvent: EventEmitter<any>;
     averageCenter_: boolean;
     imagePath_: string;
     minimumClusterSize_: number;
@@ -47,6 +48,8 @@ export interface ClusterOptions {
      * Whether the default behaviour of clicking on a cluster is to zoom into it.
      */
     zoomOnClick?: boolean;
+
+    zoomEvent?: EventEmitter<any>;
 
     averageCenter?: boolean;
     /**
