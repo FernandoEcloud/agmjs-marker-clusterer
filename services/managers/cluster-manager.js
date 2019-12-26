@@ -51,7 +51,7 @@ var ClusterManager = (function (_super) {
                     if(sum !== 0 && count !== 0) {
                         dv = sum / count;
                         dv = Math.round(dv * 100) / 100;
-                        dv = (parseInt(dv)).toLocaleString('spa-spa');
+                        dv = parseInt(dv);
                         price = "$"+ dv + " m²"
                     }
                     const padding_left = markers.length > 9 ? 25 : 32;
