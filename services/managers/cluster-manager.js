@@ -48,12 +48,12 @@ var ClusterManager = (function (_super) {
                     }
                     let dv = 0;
                     let price = 'Consultar';
-                    let currency = markers[i].currency ? markers[i].currency : '$';
+                    let currency = localStorage.getItem('alpozo-web-currency') ? localStorage.getItem('alpozo-web-currency').replace(/^"(.*)"$/, '$1') : '$';
                     if(sum !== 0 && count !== 0) {
                         dv = sum / count;
                         dv = Math.round(dv * 100) / 100;
                         dv = parseInt(dv);
-                        price = currency + dv + " m²"
+                        price = dv > 0 ? currency + " " + dv + " m²" : "Consultar";
                     }
                     const padding_left = markers.length > 9 ? 25 : 32;
                     return {
