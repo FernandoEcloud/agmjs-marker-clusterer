@@ -52,7 +52,7 @@ var ClusterManager = (function (_super) {
                         dv = sum / count;
                         dv = Math.round(dv * 100) / 100;
                         dv = parseInt(dv);
-                        price = markes.currency + dv + " m²"
+                        price = markers[i].currency + dv + " m²"
                     }
                     const padding_left = markers.length > 9 ? 25 : 32;
                     return {
