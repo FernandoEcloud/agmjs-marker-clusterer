@@ -48,11 +48,12 @@ var ClusterManager = (function (_super) {
                     }
                     let dv = 0;
                     let price = 'Consultar';
+                    let currency = markers[i].currency ? markers[i].currency : '$';
                     if(sum !== 0 && count !== 0) {
                         dv = sum / count;
                         dv = Math.round(dv * 100) / 100;
                         dv = parseInt(dv);
-                        price = markers[i].currency + dv + " m²"
+                        price = currency + dv + " m²"
                     }
                     const padding_left = markers.length > 9 ? 25 : 32;
                     return {
